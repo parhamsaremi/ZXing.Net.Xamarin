@@ -143,9 +143,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.1874" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.11" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.6.0" />
+    <PackageReference Include="DotNetEssentials" Version="1.6.0--date20220814-0324.git-7f6e466" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\ZXing.Net.Mobile.Forms\ZXing.Net.Mobile.Forms.csproj">

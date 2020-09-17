@@ -1,6 +1,6 @@
 <Project Sdk="MSBuild.Sdk.Extras/3.0.23">
 	<PropertyGroup>
-		<TargetFrameworks>netstandard2.0;Xamarin.iOS10;Xamarin.Mac20;MonoAndroid10.0;tizen40</TargetFrameworks>
+		<TargetFrameworks>netstandard2.0;Xamarin.iOS10;Xamarin.Mac20;MonoAndroid10.0;tizen40;net461</TargetFrameworks>
 		<TargetFrameworks Condition=" '$(OS)' == 'Windows_NT' ">$(TargetFrameworks);uap10.0.16299;</TargetFrameworks>
 		<AssemblyName>ZXingNetMobile</AssemblyName>
 		<RootNamespace>ZXing.Net.Mobile</RootNamespace>
@@ -87,7 +87,7 @@
 		<Compile Include="**\*.android.*.cs" />
 		<AndroidResource Include="Resources\layout\*.axml" />
 		<PackageReference Include="FastAndroidCamera" Version="2.0.0" />
-		<PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.2.0.6" />
+		<PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.3.1.1" />
 	</ItemGroup>
 	<ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.iOS')) ">
 		<Compile Include="**\*.ios.cs" />
@@ -104,8 +104,21 @@
 		<Compile Include="**\*.tizen.cs" />
 		<Compile Include="**\*.tizen.*.cs" />
 	</ItemGroup>
+	<ItemGroup Condition=" $(TargetFramework.StartsWith('net461')) ">
+		<Reference Include="gtk-sharp">
+			<HintPath>GTK\Libs\gtk-sharp\gtk-sharp-2.0\gtk-sharp.dll</HintPath>
+		</Reference>
+		<Reference Include="gdk-sharp">
+			<HintPath>GTK\Libs\gtk-sharp\gtk-sharp-2.0\gdk-sharp.dll</HintPath>
+		</Reference>
+		<Reference Include="Mono.Cairo">
+			<HintPath>GTK\Libs\gtk-sharp\Mono.Cairo\Mono.Cairo.dll</HintPath>
+		</Reference>
+		<Compile Include="**\*.gtk.cs" />
+		<Compile Include="**\*.gtk.*.cs" />
+	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Xamarin.Essentials" Version="1.6.0" />
+		<PackageReference Include="DotNetEssentials" Version="1.6.0--date20220814-0324.git-7f6e466" />
 		<PackageReference Include="ZXing.Net" Version="0.16.6" />
 	</ItemGroup>
 </Project>
